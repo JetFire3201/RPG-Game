@@ -14,11 +14,17 @@ import java.util.ArrayList;
 public class Party {
 
     static ArrayList<Character> party = new ArrayList<Character>();
-
+/**
+ * 
+ * @param character Character is added to party
+ */
     public void AddToParty(Character character) {
         party.add(character);
     }
-
+/**
+ *Just displays party members.
+ * 
+ */
     public void DisplayParty() {
         for (Character members : party) {
             System.out.println(members.getName() + ": \n"+ 
@@ -28,12 +34,16 @@ public class Party {
                     "Fight Type: "+members.getFightType() +"\n");
         }
     }
-
+    /**
+     * 
+     * @param name
+     * @return Returns the Character your looking for or returns null.
+     */
     public Character getCharacter(String name) {
         boolean gotname = false;
       Character member = null;
         for (Character members : party) {
-            if (members.getName() == name) {
+            if (members.getName().equals(name)) {
                 gotname = true;
                 member = members;
                     
@@ -44,7 +54,8 @@ public class Party {
             }
         }
         if(member == null){
-            return (new Character(" Sorry, \""+name +"\" does not exist",0,0,0,""));
+            System.out.println("Sorry Character: "+name+" does not exist.");
+            return (new Character());
         }else{return member;}
     }
 }
