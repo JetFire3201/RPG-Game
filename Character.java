@@ -5,38 +5,51 @@
  */
 package rpg;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author cymmm1
  */
 public class Character {
+         
     private String name;
     private int strength;
     private int health;
     private int speed;
-    
-    public Character(String name){
-        this.name = name;
-        strength = 5;
-        health = 100;
-        speed = 10;
-        
-    }
-    public Character(String name, int strength, int health,int speed){
+    // fightType can be Knight, Magician, Fencer, Bandit.
+    private String fightType;
+    /**
+     * 
+     * @param name name of character
+     * @param strength strength of character
+     * @param health health of character
+     * @param speed  speed of character
+     * @param fighType
+     * @param fightType Character Class
+     */
+    public Character(String name, int strength, int health,int speed, String fightclass){
         this.name = name;
         this.strength = strength;
         this.health = health;
         this.speed = speed;
+        this.fightType = fightclass;
         
     }
-    
-    
+
+    public String getFightType() {
+        return fightType;
+    }
+
+    private void setFightType(String fightType) {
+        this.fightType = fightType;
+    }
     
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -44,7 +57,7 @@ public class Character {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    private void setStrength(int strength) {
         this.strength = strength;
     }
 
@@ -52,7 +65,7 @@ public class Character {
         return health;
     }
 
-    public void setHealth(int health) {
+    private void setHealth(int health) {
         this.health = health;
     }
 
@@ -60,7 +73,7 @@ public class Character {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    private void setSpeed(int speed) {
         this.speed = speed;
     }
     
