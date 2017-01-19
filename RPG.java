@@ -15,23 +15,33 @@ import java.util.Scanner;
 public class RPG {
 
     Scanner scanner = new Scanner(System.in);
-
+/**
+ * 
+ * @param args 
+ */
     public static void main(String[] args) {
         boolean running = false;
-
+        //Creates a new party for members. Will add a function to have multiple parties and be able to switch between them.
         Party party = new Party();
-
-        party.AddToParty(new Character("Matthew", 10, 100, 5, "Soldier"));
+        
+        //The reason we do not make a new object is because we do not need to create
+        //useless objects. We can make those objects when we need to.
+        party.AddToParty(new Character("Matthew", 10, 100, 5, "Soldier", 10));
+        //Adds Character to party
         party.DisplayParty();
 
-        Character temp = new Character("John", 10, 100, 5, "Soldier");
-        party.AddToParty(temp);
+        party.AddToParty(new Character("John", 10, 100, 5, "Soldier", 10));
         party.DisplayParty();
-// below is just a test function to get names of the members in the party
-        System.out.println("got the name: " + (party.getCharacter("Matthe").getName()));
-       
+
+        String name = "Matthw";
+        // below is just a test function to get names of the members in the party
+        String gotname = (party.getCharacter(name).getName());
+        if (gotname == "") {
+
+        } else {
+            System.out.println("Got " + party.getCharacter(name).getName() + " from the party.");
+        }
+
     }
-
-    
 
 }
