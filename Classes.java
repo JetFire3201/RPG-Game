@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package rpg;
 
 /**
@@ -10,14 +6,21 @@ package rpg;
  * @author cymmm1
  */
 public enum Classes {
-    WIZARD("Wizard"), KNIGHT("Knight");
+    WIZARD("Wizard", 10), KNIGHT("Knight", 20);
     
     public String value;
     public int strength;
     
-    private Classes(String value){
+    private Classes(String value, int strength){
         this.value = value;
-        strength = 100;
+        this.strength = strength;
+    }
+   
+    public int returnStrength(){
+        return strength;
+    }
+    public String returnValue(){
+        return value;
     }
     @Override
     public String toString() { 
@@ -32,3 +35,7 @@ public enum Classes {
          return super.toString();
 */
     }
+   
+
+};
+
