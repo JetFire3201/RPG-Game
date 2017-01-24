@@ -1,1 +1,1 @@
-We are now working on making a game loop, making a map, and making the inactive and active parties.
+We need to now make specific type classes that solely have values.
