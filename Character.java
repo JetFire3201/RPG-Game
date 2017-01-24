@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rpg;
 
 import java.util.ArrayList;
@@ -17,12 +12,14 @@ public class Character {
     private int strength;
     private int health;
     private int speed;
-    // fightType can be Knight, Magician, Fencer, Bandit.
-    private String fightType;
+    // fightType can be Knight, Magician, Fencer, Bandit
     private int defense;
+    private Enum classType;
+    
+    
 
     /**
-     *Makes a new Character Object
+     * Makes a new Character Object
      * 
      * But this will not be used in conjunction to an assignment, simply as a argument in party class
      * 
@@ -30,16 +27,15 @@ public class Character {
      * @param strength strength of character
      * @param health health of character
      * @param speed speed of character
-     * @param fighType Class of character
      * @param fightType Character Class
      */
 
-    public Character(String name, int strength, int health, int speed, String fightclass, int defense) {
+    public Character(String name, int strength, int health, int speed,Enum Class, int defense) {
         this.name = name;
         this.strength = strength;
         this.health = health;
         this.speed = speed;
-        this.fightType = fightclass;
+        this.classType = Class;
         this.defense = defense;
 
     }
@@ -53,16 +49,32 @@ public class Character {
         this.health = 0;
         this.speed = 0;
         this.defense = 0;
-        this.fightType = "";
+        
 
     }
 
-    public String getFightType() {
-        return fightType;
+    
+
+    public Enum getFightType() {
+        return classType;
     }
 
-    private void setFightType(String fightType) {
-        this.fightType = fightType;
+    public void setFightType(String type) {
+        
+            boolean possible =false;
+            Classes[] ar = Classes.values(); //gets all the classes values
+            for(Enum ct : ar){
+                if(type == ct.toString()){//to string is an overwritten method.
+                 classType = Classes.valueOf(ct.name());
+                 possible = true;
+                
+                }
+            }
+            if(possible == false){
+                System.out.println("Could not change Class Type to "+type);
+            }else{
+                System.out.println("Class changed to " +type);
+            }
     }
 
     public String getName() {
