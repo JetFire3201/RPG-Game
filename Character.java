@@ -30,14 +30,17 @@ public class Character {
      * @param fightType Character Class
      */
 
-    public Character(String name, int strength, int health, int speed,Enum Class, int defense) {
+    public Character(String name, int strength, int health, int speed,String Class, int defense) {
         this.name = name;
-        this.strength = strength;
-        this.health = health;
-        this.speed = speed;
-        this.classType = Class;
-        this.defense = defense;
-
+        //first you must set the fightType to be able to get the stats of that enum
+        this.setFightType(Class);
+      
+        //this is a weird line because get FightType is returned a enum and set strength is taken a enum as a parameter
+         this.strength=Classes.valueOf(this.getFightType().name()).strength;
+                
+        //do health
+        //do speed
+        //do defense
     }
 
     /**
@@ -49,8 +52,6 @@ public class Character {
         this.health = 0;
         this.speed = 0;
         this.defense = 0;
-        
-
     }
 
     
@@ -85,12 +86,15 @@ public class Character {
         this.name = name;
     }
 
-    public int getStrength() {
-        return strength;
+    public double getStrength() {
+        
+         return this.strength;
     }
 
     private void setStrength(int strength) {
-        this.strength = strength;
+        //so valueof returns the class of the name, and then you get the strength of it.
+        this.strength=strength;
+
     }
 
     public int getHealth() {
